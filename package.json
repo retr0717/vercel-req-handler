@@ -1,0 +1,22 @@
+{
+  "name": "vercel-req-handler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.515.0",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.11.19",
+    "dotenv": "^16.4.4",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.3",
+    "ts-node": "^10.9.2"
+  }
+}
