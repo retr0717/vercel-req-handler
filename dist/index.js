@@ -9,15 +9,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 const express = require('express');
-const { S3Client, GetObjectCommand } = require('@aws-sdk/client-s3');
 const dotenv = require('dotenv');
 dotenv.config();
+const { S3Client, GetObjectCommand } = require('@aws-sdk/client-s3');
 const s3Client = new S3Client({
-    region: 'us-east-1',
+    endpoint: process.env.ENDPONT, // Replace with your region
     credentials: {
         accessKeyId: process.env.ACCESS_KEY,
         secretAccessKey: process.env.SECRET_KEY,
     },
+    region: process.env.REGION, // Set your desired region here
 });
 const app = express();
 app.use(express.json());
@@ -28,7 +29,7 @@ app.get('/*', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const fpath = req.path;
     // Define parameters for getting the object
     const params = {
-        Bucket: "vercel",
+        Bucket: "vercel-storage",
         Key: `dist/${id}${fpath}` //file path in the vercel
     };
     // Execute the command to get the object
